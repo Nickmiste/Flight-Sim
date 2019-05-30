@@ -17,4 +17,11 @@ public class ExplosionManager : MonoBehaviour
     {
         Instantiate(instance.explosion, position, Quaternion.identity);
     }
+
+    public static void CreateExplosion(Vector3 position, float size)
+    {
+        GameObject obj = Instantiate(instance.explosion, position, Quaternion.identity);
+        obj.transform.localScale = new Vector3(size, size, size);
+        obj.GetComponent<AudioSource>().volume = size;
+    }
 }

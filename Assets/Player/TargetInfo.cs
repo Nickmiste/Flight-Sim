@@ -26,7 +26,7 @@ public class TargetInfo : MonoBehaviour
 
     private void Update()
     {
-        if (Player.instance.weaponsEnabled && TargetManager.IsTargetingObject())
+        if (Player.instance.weaponsEnabled && TargetManager.IsTargetingObject() && TargetManager.targetInfo != "ignore")
             Open();
         else
             Close();

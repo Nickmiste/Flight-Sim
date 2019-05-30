@@ -15,7 +15,7 @@ public class AsteroidField : MonoBehaviour
                 Destroy(child.gameObject);
 
         while (transform.childCount < MAX_ASTEROIDS)
-            SpawnAsteroid(PlayerUtil.GetRandomPointWithinRange(200, 1000));
+            SpawnAsteroid(PlayerUtil.GetRandomPointWithinRange(200, 800));
 
         //Vector3 closest = transform.position;
 

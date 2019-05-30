@@ -38,12 +38,11 @@ public class PlayerMovement : MovementBase
             UpdateYPR();
         }
 
-        if (controlScheme == ControlScheme.DEBUG)
-            DoDebugMovement();
         DoMovement();
 
-        GetComponent<AudioSource>().pitch = Mathf.Lerp(1, enginePitch, GetSpeed() / maxSpeed);
-        UpdateUI(GetSpeed(), GetForwardSpeed());
+        float speed = GetSpeed();
+        GetComponent<AudioSource>().pitch = Mathf.Lerp(1, enginePitch, speed / maxSpeed);
+        UpdateUI(speed, GetForwardSpeed(speed));
     }
 
     private void UpdateThrottle()
@@ -162,7 +161,7 @@ public class PlayerMovement : MovementBase
 
     private void UpdateUI(float speed, float forwardSpeed)
     {
-        UIManager.SetSpeedUI(this.throttle, speed / maxSpeed, forwardSpeed / maxSpeed);
+        Speedometer.UpdateSpeedometerUI(this.throttle, speed / maxSpeed, forwardSpeed / maxSpeed);
     }
     
     private void SetControlScheme(ControlScheme controlScheme)

@@ -30,8 +30,8 @@ public class TurretManager : MonoBehaviour
         }
         else if (layout == TurretLayout.LEFT_RIGHT)
         {
-            AddTurret(0,  2.5f, 1.62f, 0.0f);
-            AddTurret(0, -2.5f, 1.62f, 0.0f);
+            AddTurret(0, -2.8f, 0.12f, 0.25f);
+            AddTurret(0,  2.8f, 0.12f, 0.25f);
         }
         else if (layout == TurretLayout.LEFT_RIGHT_TOP)
         {

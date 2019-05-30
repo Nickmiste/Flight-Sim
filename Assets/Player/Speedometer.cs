@@ -5,8 +5,21 @@ using UnityEngine.UI;
 
 public class Speedometer : MonoBehaviour
 {
-	void Update()
+    private static Speedometer instance;
+
+    [SerializeField] private ProgressBar throttleBar = null;
+    [SerializeField] private ProgressBar speedBar = null;
+    [SerializeField] private ProgressBar forwardSpeedBar = null;
+
+    private void Start()
     {
-        //transform.Find("Speed").GetComponent<Image>().fillAmount = PlayerMovement.GetVelocity().magnitude / 10;
-	}
+        instance = this;
+    }
+
+    public static void UpdateSpeedometerUI(float throttle, float speed, float forwardSpeed)
+    {
+        instance.throttleBar.SetProgress(throttle);
+        instance.speedBar.SetProgress(speed);
+        instance.forwardSpeedBar.SetProgress(forwardSpeed);
+    }
 }

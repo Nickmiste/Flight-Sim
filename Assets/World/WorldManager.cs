@@ -28,7 +28,7 @@ public sealed class WorldManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         transform.DetachChildren();
 
-        GenerateNebula();
+        //GenerateNebula();
         GenerateWorldGates();
         //GenerateStations();
 
@@ -110,7 +110,7 @@ public sealed class WorldManager : MonoBehaviour
 
         for (int i = 0; i < numStations; i++)
         {
-            float distance = 100;
+            float distance = 500;
 
             CreateWorldObject<Station>(distance);
         }

@@ -50,7 +50,7 @@ public class SquidBehaviorWander : CreatureBehavior
         {
             //GetCreature().transform.position = Vector3.Lerp(start, target, GetPhaseProgress());
 
-            GetCreature().transform.position = VectorUtil.InterpolateCustom(start, target, (T) => Mathf.Pow(T, 0.3f), GetPhaseProgress());
+            //GetCreature().transform.position = VectorUtil.InterpolateCustom(start, target, (T) => Mathf.Pow(T, 0.3f), GetPhaseProgress());
         }
 
         private float foo(float x)

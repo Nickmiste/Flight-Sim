@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public static Player instance { get; private set; }
 
-    [SerializeField] private float health;
+    [SerializeField] private ProgressBar hullBar = null;
+    [SerializeField] private float maxHull = 100f;
+    private float hull;
+
 
     [HideInInspector] public bool weaponsEnabled = true;
-
+    
     private void Start()
     {
         instance = this;
+        hull = maxHull;
     }
 
     private void FixedUpdate()
@@ -20,8 +24,9 @@ public class Player : MonoBehaviour
         
     }
 
-    public void Damage(float damage)
+    void IDamageable.Damage(float damage)
     {
-        health -= damage;
+        hull -= damage;
+        hullBar.SetProgress(hull / maxHull);
     }
 }
